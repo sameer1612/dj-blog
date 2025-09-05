@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+  Home - Django Blog
+{% endblock title %}
+{% block content %}
+  <div class="p-4">
+    <h1 class="text-primary text-6xl">Posts</h1>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 mt-4">
+      {% for post in posts %}
+        <div class="card bg-base-200">
+          <div class="card-body flex flex-col gap-4">
+            <div>
+              <h2 class="card-title text-secondary">{{ post.title }}</h2>
+              <p class="text-sm text-base-content/50">{{ post.created_at|date:"F j, Y" }}</p>
+            </div>
+            <p>{{ post.content|truncatewords:30 }}</p>
+            <div class="card-actions justify-end">
+              <a href="{% url 'post_detail' post.pk %}"
+                 class="btn btn-soft btn-primary btn-sm">Read more</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p>No posts available.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

@@ -19,9 +19,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-from posts.views import home
 
-urlpatterns = [path("admin/", admin.site.urls), path("", home)]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("posts.urls")),
+]
 
 if settings.DEBUG:
     urlpatterns += [
