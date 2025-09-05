@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "tailwind",
+    "theme",
     "posts",
 ]
 
@@ -55,7 +57,7 @@ ROOT_URLCONF = "blog.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "theme" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,3 +123,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Tailwind CSS Configuration
+TAILWIND_APP_NAME = "theme"
+if DEBUG:
+    INSTALLED_APPS += ["django_browser_reload"]
+    MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
