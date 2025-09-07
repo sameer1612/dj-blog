@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
-  {{ post.title }} - Django Blog
+  {{ post.title }}
 {% endblock title %}
 {% block content %}
   <div class="flex flex-col gap-8 p-4">
@@ -11,5 +12,9 @@
     <div class="mt-4">
       <p class="leading-relaxed">{{ post.content }}</p>
     </div>
+    <p>
+      {% translate "Thanks for reading!" %}
+      <a href="{% url 'post_list' %}" class="text-primary hover:underline">{% translate "Back to posts" %}</a>
+    </p>
   </div>
 {% endblock content %}

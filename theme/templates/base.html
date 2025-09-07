@@ -1,8 +1,13 @@
 {% load static tailwind_tags %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Django Tailwind</title>
+    <title>
+      {% block title %}
+        Django Blog
+      {% endblock title %}
+    </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -10,14 +15,31 @@
     <meta name="keywords" content="django, tailwind, blog">
     {% tailwind_css %}
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=inter:wght@400;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
       body {
         font-family: 'Inter', sans-serif;
       }
     </style>
   </head>
-  <body class="min-h-screen">
-    {% block content %}
-    {% endblock content %}
+  <body class="min-h-screen relative">
+    <div class="absolute top-4 right-4">
+      <form action="{% url 'set_language' %}" method="post" class="inline">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <select name="language"
+                onchange="this.form.submit()"
+                class="border border-gray-200 rounded-md p-2">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for code, name in LANGUAGES %}
+            <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>{{ name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+    <main class="p-6">
+      {% block content %}
+      {% endblock content %}
+    </main>
   </body>
 </html>

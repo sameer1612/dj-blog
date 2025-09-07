@@ -184,6 +184,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "cookiecutter" },
     { name = "django" },
+    { name = "django-rosetta" },
     { name = "django-tailwind", extra = ["reload"] },
     { name = "djlint" },
     { name = "honcho" },
@@ -201,6 +202,7 @@ dev = [
 requires-dist = [
     { name = "cookiecutter", specifier = ">=2.6.0" },
     { name = "django", specifier = ">=5.2.6" },
+    { name = "django-rosetta", specifier = ">=0.10.2" },
     { name = "django-tailwind", extras = ["reload"], specifier = ">=4.2.0" },
     { name = "djlint", specifier = ">=1.36.4" },
     { name = "honcho", specifier = ">=2.0.0" },
@@ -239,6 +241,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3b/41/84eaa4f2b7f764e56e01c4ee49aa12bdea30ae50fd0d3ef7c2690b0c4ec2/django_browser_reload-1.18.0.tar.gz", hash = "sha256:c5f0b134723cbf2a0dc9ae1ee1d38e42db28fe23c74cdee613ba3ef286d04735", size = 14319, upload-time = "2025-02-06T22:14:40.799Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e4/9d/1322dc4bce4982d1eadd3a62802c996ae0303aad13d9ad88c1d35025f73d/django_browser_reload-1.18.0-py3-none-any.whl", hash = "sha256:ed4cc2fb83c3bf6c30b54107a1a6736c0b896e62e4eba666d81005b9f2ecf6f8", size = 12230, upload-time = "2025-02-06T22:14:36.87Z" },
+]
+
+[[package]]
+name = "django-rosetta"
+version = "0.10.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "polib" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ff/d0/7c5de2e1479f9a97af8d86a6173ea635ec819b3848f5c4ea852b3f22b173/django_rosetta-0.10.2.tar.gz", hash = "sha256:7e02427fe43b578dc12e02d6ce2cb4d045cc751a91b6e7f2c5ef4f706e1fb3d0", size = 262724, upload-time = "2025-04-03T13:05:36.432Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0f/0b/0a0088fa3721c0bddbd52177b072b0e8065be9ced68f9b579c55bd01d706/django_rosetta-0.10.2-py3-none-any.whl", hash = "sha256:44bd2b9ff2b88322d1a1f0cae62d8dfd4996b465f4a22a31f016cfd64d022352", size = 122592, upload-time = "2025-04-03T13:05:34.914Z" },
 ]
 
 [[package]]
@@ -465,6 +481,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz", hash = "sha256:ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf", size = 21634, upload-time = "2025-08-26T14:32:04.268Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/40/4b/2028861e724d3bd36227adfa20d3fd24c3fc6d52032f4a93c133be5d17ce/platformdirs-4.4.0-py3-none-any.whl", hash = "sha256:abd01743f24e5287cd7a5db3752faf1a2d65353f38ec26d98e25a6db65958c85", size = 18654, upload-time = "2025-08-26T14:32:02.735Z" },
+]
+
+[[package]]
+name = "polib"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/10/9a/79b1067d27e38ddf84fe7da6ec516f1743f31f752c6122193e7bce38bdbf/polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b", size = 161658, upload-time = "2023-02-23T17:53:56.873Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6b/99/45bb1f9926efe370c6dbe324741c749658e44cb060124f28dad201202274/polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d", size = 20634, upload-time = "2023-02-23T17:53:59.919Z" },
 ]
 
 [[package]]

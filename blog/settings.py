@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -105,13 +106,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
+LANGUAGES = [
+    ("en", "English"),
+    ("hi", "Hindi"),
+    ("es", "Spanish"),
+    ("fr", "French"),
+]
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
+LANGUAGE_COOKIE_NAME = "django_language"
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+LANGUAGE_COOKIE_SAMESITE = "Lax"
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -127,5 +135,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Tailwind CSS Configuration
 TAILWIND_APP_NAME = "theme"
 if DEBUG:
-    INSTALLED_APPS += ["django_browser_reload"]
+    INSTALLED_APPS += ["django_browser_reload", "rosetta"]
     MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
